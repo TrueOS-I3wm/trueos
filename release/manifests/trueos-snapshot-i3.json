@@ -89,7 +89,9 @@
 				"sysutils/tmux",
 				"security/ca_root_nss",
 				"sysutils/tmux-mem-cpu-load",
-				"x11-wm/i3"
+				"x11-wm/i3",
+                "x11/xorg",
+                "www/firefox"
 			]
 		},
 	"poudriere-conf":[
