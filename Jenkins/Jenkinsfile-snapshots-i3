@@ -50,7 +50,7 @@ pipeline {
         }
       }
       steps {
-        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) WITH_META_MODE=yes  buildworld >${WORKSPACE}/artifacts/world.log 2>&1'
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildworld WITH_META_MODE=yes >${WORKSPACE}/artifacts/world.log 2>&1'
       }
     }
     stage('Kernel') {
@@ -63,7 +63,7 @@ pipeline {
         }
       }
       steps {
-        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) WITH_META_MODE=yes buildkernel >${WORKSPACE}/artifacts/kernel.log 2>&1'
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildkernel WITH_META_MODE=yes KERNCONF=I3 >${WORKSPACE}/artifacts/kernel.log 2>&1'
       }
     }
     stage('Base Packages') {
@@ -77,7 +77,7 @@ pipeline {
       }
       steps {
         sh 'rm -rf /usr/obj${SRCROOT}/amd64.amd64/repo'
-        sh 'cd ${SRCROOT} && make -j 12 packages -DDB_FROM_SRC >${WORKSPACE}/artifacts/packages.log 2>&1'
+        sh 'cd ${SRCROOT} && make -j 12 packages -DDB_FROM_SRC KERNCONF=I3 >${WORKSPACE}/artifacts/packages.log 2>&1'
       }
     }
     stage('Artifact') {

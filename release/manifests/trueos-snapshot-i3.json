@@ -11,6 +11,7 @@
 		"name-prefix": "TrueOS",
 		"world-flags": {
 			"default": [
+                "WITHOUT_SENDMAIL=yes",
 				"WITHOUT_ASSERT_DEBUG=ON",
 				"MALLOC_PRODUCTION=yes"
             ]
