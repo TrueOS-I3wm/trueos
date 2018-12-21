@@ -1,7 +1,6 @@
 /*
 
-Our default Jenkins pipeline we use to create our on-commit
-snapshot builds of trueos-master branch.
+snapshot builds of i3wm master branch.
 
 */
 
@@ -9,7 +8,7 @@ pipeline {
   agent { label 'TrueOS-i3wm' }
 
   environment {
-    GH_ORG = 'miwi-fbsd'
+    GH_ORG = 'TrueOS-I3wm'
     GH_REPO = 'trueos'
     SRCROOT = '/usr/trueos-src'
     POUDRIERE_BASE = 'trueos-snap-base'
