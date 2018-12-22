@@ -91,6 +91,8 @@
 				"sysutils/tmux-mem-cpu-load",
 				"x11-wm/i3",
                 "x11/xorg",
+                "base/miwinb",
+                "base/devtools",
                 "www/firefox"
 			]
 		},
