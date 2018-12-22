@@ -38,7 +38,7 @@
 				"WITHOUT_TALK=YES",
 				"WITHOUT_TELNET=YES",
 				"WITHOUT_TESTS=YES",
-				"WITHOUT_TFTP=YES"
+				"WITHOUT_TFTP=YES",
 				"WITHOUT_SENDMAIL=YES",
 				"WITHOUT_ASSERT_DEBUG=ON",
 				"MALLOC_PRODUCTION=yes"
@@ -115,7 +115,7 @@
 			]
 		},
 		"type": "git",
-		"url": "https://github.com/trueos/trueos-ports"
+		"url": "https://github.com/TrueOS-I3wm/trueos.git"
 	},
 	"version": "1.0"
 }
