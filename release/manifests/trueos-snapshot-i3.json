@@ -117,7 +117,7 @@
 			]
 		},
 		"type": "git",
-		"url": "https://github.com/TrueOS-I3wm/trueos.git"
+		"url": "https://github.com/TrueOS-I3wm/trueos-ports.git"
 	},
 	"version": "1.0"
 }
