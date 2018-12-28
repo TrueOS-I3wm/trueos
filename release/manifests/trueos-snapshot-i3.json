@@ -85,15 +85,11 @@
 		"branch": "trueos-master",
 		"build": {
 			"default": [
-				"editors/vim-console",
 				"sysutils/tmux",
 				"security/ca_root_nss",
 				"sysutils/tmux-mem-cpu-load",
-				"x11-wm/i3",
-                "x11/xorg",
-                "base/miwinb",
-                "base/devtools",
-                "www/firefox"
+				"base/miwinb",
+				"base/devtools"
 			]
 		},
 	"poudriere-conf":[
@@ -106,7 +102,8 @@
 			"default": [
 				"DEFAULT_VERSIONS+=python=3.6",
 				"MALLOC_PRODUCTION=YES",
-				"OPTIONS_UNSET+= DOCS NLS EXAMPLES JAVA CUPS HAL DBUS ALSA PULSEAUDIO GCONF DTRACE PROFILE CONSOLEKIT HELP TCLMAN MANPAGES MAN3 WAYLAND TEST GITWEB IPV6",
+				"OPTIONS_UNSET+= DOCS NLS EXAMPLES JAVA CUPS HAL DBUS ALSA PULSEAUDIO GCONF DTRACE PROFILE CONSOLEKIT HELP TCLMAN MANPAGES MAN3 WAYLAND TEST GITWEB IPV6 GTK2 PYTHON2",
+				"OPTIONS_SET+= GTK3 PYTHON3"
 				"security_sudo_SET+=DISABLE_AUTH",
 				"x11-drivers_xorg-drivers_SET+=INTEL LIBINPUT SYNAPTICS",
 				"security_pinentry-tty_SET+=LIBSECRET"
