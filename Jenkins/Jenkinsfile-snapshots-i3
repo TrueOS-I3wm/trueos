@@ -98,7 +98,9 @@ pipeline {
       steps {
         archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
       }
-}
+    }
+ }
+ }
   post {
     success {
       script {
