@@ -10,8 +10,8 @@ pipeline {
   environment {
     GH_ORG = 'TrueOS-I3wm'
     GH_REPO = 'trueos'
-    SRCROOT = '/usr/trueos-i3wm-src'
-    POUDRIERE_BASE = 'i3wm'
+    SRCROOT = '/usr/trueos-src'
+    POUDRIERE_BASE = 'trueos-snap-base'
     POUDRIERE_PORTS = 'i3wm-ports'
     TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/trueos-snapshot-i3.json'
     WITH_XTRA_PKGS = 'YES'
