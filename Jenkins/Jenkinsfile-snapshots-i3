@@ -86,6 +86,20 @@ pipeline {
       }
     }
   }
+  stage('iso') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/release.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT}/release && make iso >${WORKSPACE}/artifacts/release.log 2>&1'
+        sh 'cp /usr/obj${SRCROOT}/amd64.amd64/release/*.iso ${WORKSPACE}/artifacts'
+      }
+    }
   post {
     success {
       script {
