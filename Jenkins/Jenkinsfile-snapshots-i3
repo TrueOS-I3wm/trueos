@@ -85,8 +85,7 @@ pipeline {
         archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
       }
     }
-  }
-  stage('iso') {
+    stage('iso') {
       post {
         always {
           archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
