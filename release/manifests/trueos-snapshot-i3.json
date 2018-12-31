@@ -48,6 +48,7 @@
 	"iso": {
 		"auto-install-packages": {
 			"default": [
+                "base/miwinb"
 			]
 		},
 		"auto-install-script": "",
@@ -56,7 +57,9 @@
 		},
 		"install-script": "",
 		"iso-packages": {
-			"default": []
+			"default": [
+            "base/miwinb"
+            ]
 		},
 		"overlay": ""
 	},
