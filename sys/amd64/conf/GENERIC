@@ -353,7 +353,21 @@ device		vmx			# VMware VMXNET3 Ethernet
 # Netmap provides direct access to TX/RX rings on supported NICs
 device		netmap			# netmap(4) support
 
+<<<<<<< HEAD
 # evdev interface
 #options 	EVDEV_SUPPORT		# evdev support in legacy drivers
 #device		evdev			# input event device support
 #device		uinput			# install /dev/uinput cdev
+=======
+# Enable ALTQ
+options ALTQ
+options ALTQ_CBQ	# Class Based Queuing (CBQ)
+options ALTQ_RED	# Random Early Detection (RED)
+options ALTQ_RIO	# RED In/Out
+options ALTQ_HFSC	# Hierarchical Packet Scheduler (HFSC)
+options ALTQ_PRIQ	# Priority Queuing (PRIQ)
+options ALTQ_NOPCC	# Required for SMP build
+
+# Increase KSTACK_SIZE for our debug builds with ZoL
+options	KSTACK_PAGES=7
+>>>>>>> trueos/trueos-master
