@@ -69,7 +69,7 @@
 				"sysutils/tmux-mem-cpu-load"
 				]
 		},
-		"overlay": ""
+		"overlay": "",
 		"prune": {
 			"default": [
 			"METALOG",
