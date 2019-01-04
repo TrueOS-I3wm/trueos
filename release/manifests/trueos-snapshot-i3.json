@@ -97,7 +97,8 @@
 		"prune-dist-packages" : {
 		"default" : [
 		"(TrueOS-).+(-profile-)",
-		"(TrueOS-).+(-debug-)"
+		"(TrueOS-).+(-debug-)",
+		"(TrueOS-).+(-tests-)",
 		]
 	},
 	"overlay":{
