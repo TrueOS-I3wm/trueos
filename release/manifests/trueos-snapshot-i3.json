@@ -5,9 +5,13 @@
 				"uclcmd": {
 					"origin": "devel/uclcmd",
 					"version": ">0"
+				},
+				"sysup": {
+				    "origin": "sysutils/sysup",
+				    "version": ">0"
 				}
-			}
-		},
+			    }
+		    },
 		"name-prefix": "TrueOS",
 		"world-flags": {
 			"default": [
@@ -42,26 +46,64 @@
 				"WITHOUT_SENDMAIL=YES",
 				"WITHOUT_ASSERT_DEBUG=ON",
 				"MALLOC_PRODUCTION=yes"
-            ]
+			]
 		}
 	},
 	"iso": {
 		"auto-install-packages": {
 			"default": [
-                "base/miwinb"
+			"base/miwinb",
+			"sysutils/tmux-mem-cpu-load",
+			"base/devtools"
 			]
 		},
 		"auto-install-script": "",
 		"dist-packages": {
 			"default": []
 		},
+		"file-name": "i3wm-x64-%%GITHASH%%-%%DATE%%",
 		"install-script": "",
 		"iso-packages": {
 			"default": [
-            "base/miwinb"
-            ]
+				"base/miwinb",
+				"sysutils/tmux-mem-cpu-load",
+				]
 		},
 		"overlay": ""
+		"prune": {
+			"default": [
+			"METALOG",
+			"/usr/local/share/examples",
+			"/usr/local/include",
+			"/usr/bin/cc*",
+			"/usr/bin/clang*",
+			"/usr/bin/cpp",
+			"/usr/bin/cpp",
+			"/usr/bin/c++",
+			"/usr/bin/lldb",
+			"/usr/bin/ld.lld",
+			"/usr/bin/llvm*",
+			"/usr/bin/objdump*",
+			"/usr/bin/svn*",
+			"/usr/lib/clang",
+			"/usr/share/man",
+			"/usr/share/i18n",
+			"/usr/share/openssl/man",
+			"/usr/include",
+			"/usr/lib32"
+			]
+		}
+	},
+		"prune-dist-packages" : {
+		"default" : [
+		"(TrueOS-).+(-profile-)",
+		"(TrueOS-).+(-debug-)"
+		]
+	},
+	"post-install-commands": [
+		{
+		"chroot": true,
+		"command": "rc-update add dbus default"
 	},
 	"pkg-repo": {
 		"pubKey": [
@@ -103,7 +145,6 @@
 		"build-all": false,
 		"make.conf": {
 			"default": [
-				"DEFAULT_VERSIONS+=python=3.6",
 				"MALLOC_PRODUCTION=YES",
 				"OPTIONS_UNSET+= DOCS NLS EXAMPLES JAVA CUPS HAL DBUS ALSA PULSEAUDIO GCONF DTRACE PROFILE CONSOLEKIT HELP TCLMAN MANPAGES MAN3 WAYLAND TEST GITWEB IPV6 GTK2 PYTHON2",
 				"OPTIONS_SET+= GTK3 PYTHON3",
