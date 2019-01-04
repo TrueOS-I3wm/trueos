@@ -98,7 +98,7 @@
 		"default" : [
 		"(TrueOS-).+(-profile-)",
 		"(TrueOS-).+(-debug-)",
-		"(TrueOS-).+(-tests-)",
+		"(TrueOS-).+(-tests-)"
 		]
 	},
 	"overlay":{
