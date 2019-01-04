@@ -66,7 +66,7 @@
 		"iso-packages": {
 			"default": [
 				"base/miwinb",
-				"sysutils/tmux-mem-cpu-load",
+				"sysutils/tmux-mem-cpu-load"
 				]
 		},
 		"overlay": ""
