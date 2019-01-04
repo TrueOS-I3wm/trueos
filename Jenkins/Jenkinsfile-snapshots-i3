@@ -63,7 +63,7 @@ pipeline {
         }
       }
       steps {
-        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildkernel >${WORKSPACE}/artifacts/kernel.log 2>&1'
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildkernel KERNCONF=i3 >${WORKSPACE}/artifacts/kernel.log 2>&1'
       }
     }
     stage('Base Packages') {
