@@ -104,6 +104,8 @@
 		{
 		"chroot": true,
 		"command": "rc-update add dbus default"
+		}
+	    ]
 	},
 	"pkg-repo": {
 		"pubKey": [
