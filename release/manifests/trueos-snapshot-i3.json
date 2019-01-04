@@ -100,7 +100,10 @@
 		"(TrueOS-).+(-debug-)"
 		]
 	},
-	"post-install-commands": [
+	"overlay":{
+		"install-script":"",
+		"auto-install-script":"",
+		"post-install-commands": [
 		{
 		"chroot": true,
 		"command": "rc-update add dbus default"
