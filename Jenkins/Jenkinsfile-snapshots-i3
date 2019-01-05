@@ -12,7 +12,7 @@ pipeline {
     GH_REPO = 'trueos'
     SRCROOT = '/usr/trueos-i3wm-src1'
     POUDRIERE_BASE = 'i3wm'
-    POUDRIERE_PORTS = 'i3wm-ports'
+    POUDRIERE_PORTS = 'i3wm-ports1'
     TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/trueos-snapshot-i3.json'
     WITH_XTRA_PKGS = 'YES'
     TRUEOS_VERSION = '13.0'
