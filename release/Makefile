@@ -219,7 +219,7 @@ disc1:
 	cp ${TRUEOS_MANIFEST} ${.OBJDIR}/${.TARGET}/root/trueos-manifest.json
 
 # Need a kernel since worldstage doesn't include one
-	cd ${WORLDDIR} && ${IMAKE} installkernel \
+	cd ${WORLDDIR} && ${IMAKE} installkernel KERNCONF=I3 \
 	    DESTDIR=${.OBJDIR}/${.TARGET} MK_AMD=no MK_AT=no \
 	    MK_INSTALLLIB=no MK_LIB32=no MK_MAIL=no \
 	    MK_TOOLCHAIN=no MK_PROFILE=no \
