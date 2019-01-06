@@ -1,160 +1,113 @@
-{
-	"base-packages": {
-		"depends": {},
-		"name-prefix": "I3WM"
+/*
 
-        "world-flags": {
-		"default": [
-			"WITHOUT_CALENDAR=YES",
-			"WITHOUT_EE=YES",
-			"WITHOUT_DEBUG_FILES=YES",
-			"WITHOUT_DMAGENT=YES",
-			"WITHOUT_EXAMPLES=YES",
-			"WITHOUT_FINGER=YES",
-			"WITHOUT_FLOPPY=YES",
-			"WITHOUT_FTP=YES",
-			"WITHOUT_FREEBSD_UPDATE=YES",
-			"WITHOUT_GAMES=YES",
-			"WITHOUT_IPFW=YES",
-			"WITHOUT_HAST=YES",
-			"WITHOUT_HTML=YES",
-			"WITHOUT_IPFILTER=YES",
-			"WITHOUT_IPFW=YES",
-			"WITHOUT_MAIL=YES",
-			"WITHOUT_NIS=YES",
-			"WITHOUT_NLS=YES",
-			"WITHOUT_NS_CACHING=YES",
-			"WITHOUT_PF=YES",
-			"WITHOUT_PORTSNAP=YES",
-			"WITHOUT_PPP=YES",
-			"WITHOUT_RADIUS_SUPPORT=YES",
-			"WITHOUT_SVNLITE=YES",
-			"WITHOUT_TALK=YES",
-			"WITHOUT_TELNET=YES",
-			"WITHOUT_TESTS=YES",
-			"WITHOUT_TFTP=YES",
-			"WITHOUT_SENDMAIL=YES",
-			"WITHOUT_ASSERT_DEBUG=ON",
-			"MALLOC_PRODUCTION=yes"
-		]
-	}
-}
-	"iso": {
-		"auto-install-packages": {
-			"default": [
-				"base/miwinb",
-				"sysutils/tmux-mem-cpu-load",
-				"base/devtools"
-			]
-		},
-		"auto-install-script": "",
-		"dist-packages": {
-			"default": []
-		},
-		"file-name": "i3wm-x64-%%GITHASH%%-%%DATE%%",
-		"install-script": "",
-		"iso-packages": {
-			"default": [
-				"base/miwinb",
-				"sysutils/tmux-mem-cpu-load"
-			]
-		},
-		"overlay": "",
-		"prune": {
-			"default": [
-				"METALOG",
-				"/usr/local/share/examples",
-				"/usr/local/include",
-				"/usr/bin/cc*",
-				"/usr/bin/clang*",
-				"/usr/bin/cpp",
-				"/usr/bin/cpp",
-				"/usr/bin/c++",
-				"/usr/bin/lldb",
-				"/usr/bin/ld.lld",
-				"/usr/bin/llvm*",
-				"/usr/bin/objdump*",
-				"/usr/bin/svn*",
-				"/usr/lib/clang",
-				"/usr/share/man",
-				"/usr/share/i18n",
-				"/usr/share/openssl/man",
-				"/usr/include",
-				"/usr/lib32"
-			]
-		}
-	},
-	"prune-dist-packages": {
-		"default": [
-			"(TrueOS-).+(-profile-)",
-			"(TrueOS-).+(-debug-)",
-			"(TrueOS-).+(-tests-)"
-		]
-	},
-	"overlay": {
-		"install-script": "",
-		"auto-install-script": "",
-		"post-install-commands": [{
-			"chroot": true,
-			"command": "rc-update add dbus default"
-		}]
-	},
-	"pkg-repo": {
-		"pubKey": [
-			"-----BEGIN PUBLIC KEY-----",
-			"MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx4YxSavJkE7HjopkMtgK",
-			"tk/plcnImzfx0MmdK3ijv2724+v810kbAmRI01aiooQvusfcQ5OOyNpAzxwKMTTB",
-			"6bo46YtrnYBTP5G1mNqTRxL5Sg03Kpwcb6fCZ4gYOqTNPmhV6BskhRrfGOzNazcd",
-			"cb8CeqTeL7A44vwkyufQrSNgT9+ByCGuxaEp2os+GEbELyWZMmpQD6s2gAgpXuB6",
-			"K/f7pm9ZsULjJ+ZKc31TjgMTyVA07niocjDxiD2KVEbiagirnxA7BLa66u58B1ol",
-			"tnvOD8JNkGONT2LJhWOMXowZ8fCQ6Ec6ws2SY0UJ14d4w7xnz7U9+STHRYlJnNyl",
-			"ZYNLZ7UK7zyILWhAjkmq3TUaw7o456+QIyf4hA/he9UZhwhgRGNjJCUATbEUT+PF",
-			"65ox6+rT5g/jjDlY6kxfvLCTYJG/Arlj9FCAV/vBa/0lUu1OjivxPNK694G4tVHl",
-			"/z1yApzgzbOgkOY1caPCkGgniD2N4rySm744RxVXonrKmso9nsG0tGrDTC72M39Y",
-			"xgzt2x+NCDhBxZ6EWkqXH6Xk5yOPUV8XDTjqwOnm4XvyD9jzxAiK9Bex6CxKNfph",
-			"9p42Kr3QZPVXjZofqcfhJxZ4Nv0s09K1R1yqNzMmO7Aa2uF2F6ChQ/m6Z41hdaeO",
-			"AxxsOeRYAlBFJ4oo2cFVyqkCAwEAAQ==",
-			"-----END PUBLIC KEY-----"
-		],
-		"url": "https://pkg.fbsd.io/pkg/snapshot/${ABI}/latest"
-	},
-	"pkg-repo-name": "TrueOS",
-	"pkg-train-name": "snapshot",
-	"ports": {
-		"branch": "trueos-master",
-		"build": {
-			"default": [
-				"sysutils/tmux",
-				"security/ca_root_nss",
-				"sysutils/tmux-mem-cpu-load",
-				"base/miwinb",
-				"base/devtools"
-			]
-		},
-		"poudriere-conf": [
-			"NOHANG_TIME=14400",
-			"ALLOW_MAKE_JOBS=yes",
-			"USE_TMPFS=yes"
-		],
-		"build-all": false,
-		"make.conf": {
-			"default": [
-				"MALLOC_PRODUCTION=YES",
-				"OPTIONS_UNSET+= DOCS NLS EXAMPLES JAVA CUPS HAL DBUS ALSA PULSEAUDIO GCONF DTRACE PROFILE CONSOLEKIT HELP TCLMAN MANPAGES MAN3 WAYLAND TEST GITWEB IPV6 GTK2 PYTHON2",
-				"OPTIONS_SET+= GTK3 PYTHON3",
-				"security_sudo_SET+=DISABLE_AUTH",
-				"x11-drivers_xorg-drivers_SET+=INTEL LIBINPUT SYNAPTICS VMWARE SCFB",
-				"security_pinentry-tty_SET+=LIBSECRET"
-			]
-		},
-		"src.conf": {
-			"default": [
-				"WITHOUT_ASSERT_DEBUG=ON"
-			]
-		},
-		"type": "git",
-		"url": "https://github.com/TrueOS-I3wm/trueos-ports.git"
-	},
-	"version": "1.0"
-}
+snapshot builds of i3wm master branch.
 
+*/
+
+pipeline {
+  agent { label 'TrueOS-i3wm' }
+
+  environment {
+    GH_ORG = 'TrueOS-I3wm'
+    GH_REPO = 'trueos'
+    SRCROOT = '/usr/trueos-i3wm-src2'
+    POUDRIERE_BASE = 'i3wm'
+    POUDRIERE_PORTS = 'i3wm-ports1'
+    TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/trueos-snapshot-i3.json'
+    WITH_XTRA_PKGS = 'YES'
+    TRUEOS_VERSION = '13.0'
+  }
+
+  stages {
+
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Nullfs') {
+      steps {
+        sh 'rm -rf ${WORKSPACE}/artifacts'
+        sh 'mkdir -p ${WORKSPACE}/artifacts/repo'
+        sh 'mkdir -p ${SRCROOT} || true'
+        sh 'umount -f ${SRCROOT} || true'
+        sh 'mount_nullfs ${WORKSPACE} ${SRCROOT}'
+        sh 'rm -rf /usr/obj/${SRCROOT}/amd64.amd64 || true'
+        sh 'chflags -R noschg /usr/obj/${SRCROOT}/amd64.amd64 || true'
+        sh 'rm -rf /usr/obj/${SRCROOT}/amd64.amd64 || true'
+      }
+
+    }
+
+    stage('World') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/world.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildworld >${WORKSPACE}/artifacts/world.log 2>&1'
+      }
+    }
+    stage('Kernel') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/kernel.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildkernel >${WORKSPACE}/artifacts/kernel.log 2>&1'
+      }
+    }
+    stage('Base Packages') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/packages.log'
+        }
+      }
+      steps {
+        sh 'rm -rf /usr/obj${SRCROOT}/amd64.amd64/repo'
+        sh 'cd ${SRCROOT} && make -j$(sysctl -n hw.ncpu) packages -DDB_FROM_SRC >${WORKSPACE}/artifacts/packages.log 2>&1'
+      }
+    }
+    stage('iso') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/release.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT}/release && make iso >${WORKSPACE}/artifacts/release.log 2>&1'
+        sh 'cp /usr/obj${SRCROOT}/amd64.amd64/release/*.iso ${WORKSPACE}/artifacts'
+      }
+    }
+    stage('Artifact') {
+      steps {
+        archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+      }
+    }
+ }
+  post {
+    success {
+      script {
+        cleanWs notFailBuild: true
+      }
+    }
+    always {
+      sh 'umount -f ${SRCROOT} || true'
+    }
+  }
+}
