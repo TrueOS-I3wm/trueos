@@ -44,19 +44,23 @@
 			"default": [
 				"base/miwinb",
 				"sysutils/tmux-mem-cpu-load",
-				"base/devtools"
+				"base/devtools",
+				"ports-mgmt/pkg"
 			]
 		},
 		"auto-install-script": "",
 		"dist-packages": {
-			"default": []
+			"default": [
+			    "ports-mgmt/pkg"
+			]
 		},
 		"file-name": "i3wm-x64-%%GITHASH%%-%%DATE%%",
 		"install-script": "",
 		"iso-packages": {
 			"default": [
 				"base/miwinb",
-				"sysutils/tmux-mem-cpu-load"
+				"sysutils/tmux-mem-cpu-load",
+				"ports-mgmt/pkg"
 			]
 		},
 		"overlay": "",
