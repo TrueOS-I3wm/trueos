@@ -116,7 +116,7 @@
 			"AxxsOeRYAlBFJ4oo2cFVyqkCAwEAAQ==",
 			"-----END PUBLIC KEY-----"
 		],
-		"url": "https://pkg.trueos.org/pkg/snapshot/${ABI}/latest"
+		"url": "https://pkg.fbsd.io/snapshot/${ABI}/latest"
 	},
 	"pkg-repo-name": "TrueOS",
 	"pkg-train-name": "snapshot",
