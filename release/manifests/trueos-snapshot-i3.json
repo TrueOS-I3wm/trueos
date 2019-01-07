@@ -1,6 +1,13 @@
 {
 	"base-packages": {
-		"depends": {},
+		"depends": {
+			"runtime": {
+				"pkg": {
+					"origin": "ports-mgmt/pkg",
+					"version": ">0"
+				}
+			}
+		},
 		"name-prefix": "I3WM",
 
 		"world-flags": {
@@ -51,8 +58,8 @@
 		"auto-install-script": "",
 		"dist-packages": {
 			"default": [
-			    "ports-mgmt/pkg",
-			    "textproc/jq"
+				"ports-mgmt/pkg",
+				"textproc/jq"
 			]
 		},
 		"file-name": "i3wm-x64-%%GITHASH%%-%%DATE%%",
