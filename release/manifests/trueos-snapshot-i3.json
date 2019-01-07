@@ -51,7 +51,8 @@
 		"auto-install-script": "",
 		"dist-packages": {
 			"default": [
-			    "ports-mgmt/pkg"
+			    "ports-mgmt/pkg",
+			    "textproc/jq"
 			]
 		},
 		"file-name": "i3wm-x64-%%GITHASH%%-%%DATE%%",
@@ -60,7 +61,8 @@
 			"default": [
 				"base/miwinb",
 				"sysutils/tmux-mem-cpu-load",
-				"ports-mgmt/pkg"
+				"ports-mgmt/pkg",
+				"textproc/jq"
 			]
 		},
 		"overlay": "",
