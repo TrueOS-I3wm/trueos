@@ -1,0 +1,113 @@
+/*
+
+snapshot builds of i3wm master branch.
+
+*/
+
+pipeline {
+  agent { label 'TrueOS-i3wm' }
+
+  environment {
+    GH_ORG = 'TrueOS-I3wm'
+    GH_REPO = 'trueos'
+    SRCROOT = '/usr/i3wm-debug'
+    POUDRIERE_BASE = 'i3wm'
+    POUDRIERE_PORTS = 'i3wm-ports1'
+    TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/trueos-snapshot-i3-debug.json'
+    WITH_XTRA_PKGS = 'YES'
+    TRUEOS_VERSION = '13.0'
+  }
+
+  stages {
+
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Nullfs') {
+      steps {
+        sh 'rm -rf ${WORKSPACE}/artifacts'
+        sh 'mkdir -p ${WORKSPACE}/artifacts/repo'
+        sh 'mkdir -p ${SRCROOT} || true'
+        sh 'umount -f ${SRCROOT} || true'
+        sh 'mount_nullfs ${WORKSPACE} ${SRCROOT}'
+        sh 'rm -rf /usr/obj/${SRCROOT}/amd64.amd64 || true'
+        sh 'chflags -R noschg /usr/obj/${SRCROOT}/amd64.amd64 || true'
+        sh 'rm -rf /usr/obj/${SRCROOT}/amd64.amd64 || true'
+      }
+
+    }
+
+    stage('World') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/world.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildworld >${WORKSPACE}/artifacts/world.log 2>&1'
+      }
+    }
+    stage('Kernel') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/kernel.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT} && make -j $(sysctl -n hw.ncpu) buildkernel >${WORKSPACE}/artifacts/kernel.log 2>&1'
+      }
+    }
+    stage('Base Packages') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/packages.log'
+        }
+      }
+      steps {
+        sh 'rm -rf /usr/obj${SRCROOT}/amd64.amd64/repo'
+        sh 'cd ${SRCROOT} && make -j4 packages -DDB_FROM_SRC >${WORKSPACE}/artifacts/packages.log 2>&1'
+      }
+    }
+    stage('iso') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+        }
+        failure {
+          sh 'tail -n 200 ${WORKSPACE}/artifacts/release.log'
+        }
+      }
+      steps {
+        sh 'cd ${SRCROOT}/release && make iso >${WORKSPACE}/artifacts/release.log 2>&1'
+        sh 'cp /usr/obj${SRCROOT}/amd64.amd64/release/*.iso ${WORKSPACE}/artifacts'
+      }
+    }
+    stage('Artifact') {
+      steps {
+        archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
+      }
+    }
+ }
+  post {
+    success {
+      script {
+        cleanWs notFailBuild: true
+      }
+    }
+    always {
+      sh 'umount -f ${SRCROOT} || true'
+    }
+  }
+}
