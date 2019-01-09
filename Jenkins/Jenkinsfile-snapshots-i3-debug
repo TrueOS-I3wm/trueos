@@ -13,7 +13,7 @@ pipeline {
     SRCROOT = '/usr/i3wm-debug'
     POUDRIERE_BASE = 'i3wm-debug'
     POUDRIERE_PORTS = 'i3wm-ports-debug'
-    TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/Jenkinsfile-snapshots-i3-debug.json'
+    TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/i3wm-snapshot.json'
     WITH_XTRA_PKGS = 'YES'
     TRUEOS_VERSION = '13.0'
   }
