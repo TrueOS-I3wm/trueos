@@ -17,7 +17,7 @@
 		"build": {
 			"default": [
 				"sysutils/tmux",
-				"textproc/jq"
+				"textproc/jq",
 			]
 		}
 
@@ -41,7 +41,8 @@
 		},
 		"auto-install-packages": {
 			"default": [
-				"base/miwinb"
+				"lang/python36",
+				"x11/xorg"
 			]
 		},
 		"overlay": {
