@@ -42,7 +42,7 @@
 			]
 		},
 		"overlay": {
-			"type": "git",
+			"type": "",
 			"url": "",
 			"branch": ""
 		},
