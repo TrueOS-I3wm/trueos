@@ -32,8 +32,49 @@
 		"iso-packages": {
 			"default": [
 				"sysutils/tmux",
-				"textproc/jq"
-				
+				"textproc/jq",
+				"lang/python36",
+				"x11/xorg",
+				"x11/rxvt-unicode",
+				"x11/urxvt-perls",
+				"editors/vim-console",
+				"security/openssh-askpass",
+				"ports-mgmt/porttools",
+				"ports-mgmt/psearch",
+				"shells/zsh",
+				"devel/git",
+				"www/firefox",
+				"mail/neomutt",
+				"ports-mgmt/freebsd-bugzilla-cli",
+				"misc/mc",
+				"devel/subversion",
+				"net/rsync",
+				"lang/python",
+				"security/openvpn",
+				"sysutils/synergy",
+				"graphics/drm-current-kmod",
+				"x11/slim",
+				"sysutils/htop",
+				"x11-fonts/powerline-fonts",
+				"x11-wm/i3",
+				"x11/i3lock",
+				"x11/i3status",
+				"sysutils/dunst",
+				"x11/rofi",
+				"graphics/feh",
+				"archivers/unzip",
+				"sysutils/powermon",
+				"sysutils/powerdxx",
+				"x11/xautolock",
+				"deskutils/py-py3status",
+				"net-mgmt/networkmgr",
+				"x11/lxrandr",
+				"sysutils/sysup",
+				"deskutils/gcalcli",
+				"sysutils/neofetch",
+				"graphics/scrot",
+				"x11-fonts/font-awesome",
+				"base/miwinb"
 			]
 		},
 		"dist-packages": {
@@ -42,7 +83,55 @@
 		"auto-install-packages": {
 			"default": [
 				"lang/python36",
-				"x11/xorg"
+				"x11/xorg",
+				"x11/rxvt-unicode",
+				"x11/urxvt-perls",
+				"editors/vim-console",
+				"security/openssh-askpass",
+				"ports-mgmt/porttools",
+				"ports-mgmt/psearch",
+				"shells/zsh",
+				"devel/git",
+				"www/firefox",
+				"mail/neomutt",
+				"ports-mgmt/freebsd-bugzilla-cli",
+				"misc/mc",
+				"devel/subversion",
+				"net/rsync",
+				"lang/python",
+				"security/openvpn",
+				"sysutils/synergy",
+				"graphics/drm-current-kmod",
+				"x11/slim",
+				"sysutils/htop",
+				"x11-fonts/powerline-fonts",
+				"x11-wm/i3",
+				"x11/i3lock",
+				"x11/i3status",
+				"sysutils/dunst",
+				"x11/rofi",
+				"graphics/feh",
+				"archivers/unzip",
+				"sysutils/powermon",
+				"sysutils/powerdxx",
+				"x11/xautolock",
+				"deskutils/py-py3status",
+				"net-mgmt/networkmgr",
+				"x11/lxrandr",
+				"sysutils/sysup",
+				"deskutils/gcalcli",
+				"sysutils/neofetch",
+				"graphics/scrot",
+				"x11-fonts/font-awesome",
+				"sysutils/tmux",
+				"base/miwinb"
+			]
+		},
+		"prune-dist-packages": {
+			"default": [
+				"(i3wm-).+(-profile-)",
+				"(i3wm-).+(-debug-)",
+				"(i3m-).+(-sendmail-)"
 			]
 		},
 		"overlay": {
@@ -63,7 +152,7 @@
 		]
 	},
 	"base-packages": {
-		"name-prefix": "TrueOS",
+		"name-prefix": "i3wm",
 		"depends": {
 			"runtime": {
 				"pkg": {
@@ -77,8 +166,43 @@
 			}
 		}
 	},
+	"world-flags": {
+		"default": [
+			"WITHOUT_CALENDAR=YES",
+			"WITHOUT_EE=YES",
+			"WITHOUT_DEBUG_FILES=YES",
+			"WITHOUT_DMAGENT=YES",
+			"WITHOUT_EXAMPLES=YES",
+			"WITHOUT_FINGER=YES",
+			"WITHOUT_FLOPPY=YES",
+			"WITHOUT_FTP=YES",
+			"WITHOUT_FREEBSD_UPDATE=YES",
+			"WITHOUT_GAMES=YES",
+			"WITHOUT_IPFW=YES",
+			"WITHOUT_HAST=YES",
+			"WITHOUT_HTML=YES",
+			"WITHOUT_IPFILTER=YES",
+			"WITHOUT_IPFW=YES",
+			"WITHOUT_MAIL=YES",
+			"WITHOUT_NIS=YES",
+			"WITHOUT_NLS=YES",
+			"WITHOUT_NS_CACHING=YES",
+			"WITHOUT_PF=YES",
+			"WITHOUT_PORTSNAP=YES",
+			"WITHOUT_PPP=YES",
+			"WITHOUT_RADIUS_SUPPORT=YES",
+			"WITHOUT_SVNLITE=YES",
+			"WITHOUT_TALK=YES",
+			"WITHOUT_TELNET=YES",
+			"WITHOUT_TESTS=YES",
+			"WITHOUT_TFTP=YES",
+			"WITHOUT_SENDMAIL=YES",
+			"WITHOUT_ASSERT_DEBUG=ON",
+			"MALLOC_PRODUCTION=yes"
+		]
+	},
 	"pkg-repo": {
-		"url": "https://pkg.fbsd.io/${ABI}/latest",
+		"url": "http://pkg.fbsd.io/${ABI}/latest",
 		"pubKey": [
 			"-----BEGIN PUBLIC KEY-----",
 			"MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx4YxSavJkE7HjopkMtgK",
@@ -97,5 +221,5 @@
 		]
 	},
 	"pkg-repo-name": "TrueOS",
-	"pkg-train-name": "TrueOS"
+	"pkg-train-name": "i3wm"
 }
