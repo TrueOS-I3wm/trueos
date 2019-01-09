@@ -16,7 +16,8 @@
 		"build-all": false,
 		"build": {
 			"default": [
-				"sysutils/tmux"
+				"sysutils/tmux",
+				"textproc/jq"
 			]
 		}
 
@@ -30,7 +31,9 @@
 		"file-name": "i3wm-debug-%%GITHASH%%-%%DATE%%",
 		"iso-packages": {
 			"default": [
-				"sysutils/tmux"
+				"sysutils/tmux",
+				"textproc/jq"
+				
 			]
 		},
 		"dist-packages": {
@@ -59,7 +62,7 @@
 		]
 	},
 	"base-packages": {
-		"name-prefix": "i3wm",
+		"name-prefix": "TrueOS",
 		"depends": {
 			"runtime": {
 				"pkg": {
@@ -93,5 +96,5 @@
 		]
 	},
 	"pkg-repo-name": "TrueOS",
-	"pkg-train-name": "i3wm"
+	"pkg-train-name": "TrueOS"
 }
