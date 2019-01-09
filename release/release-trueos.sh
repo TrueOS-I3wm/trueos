@@ -683,6 +683,7 @@ EOF
 	chroot ${OBJDIR}/disc1 pwd_mkdb /etc/master.passwd
 	chroot ${OBJDIR}/disc1 cap_mkdb /etc/login.conf
 	touch ${OBJDIR}/disc1/etc/fstab
+	echo exec i3 > ${OBJDIR}/disc1/root/.xinitrc
 
 	# Assemble the list of base packages to ignore (as a Regex)
 	local _base_ignore=""
