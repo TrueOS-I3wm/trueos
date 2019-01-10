@@ -110,39 +110,51 @@
 		"dist-packages": {
 			"default": []
 		},
-		"file-name": "i3wm-debug-x64-%%GITHASH%%-%%DATE%%",
 		"install-script": "",
-		"iso-packages": {
-			"default": [
-				"ports-mgmt/pkg",
-				"textproc/jq"
-			]
-		},
-		"overlay": "",
-		"prune": {
-			"default": [
-				"METALOG",
-				"/usr/local/share/examples",
-				"/usr/local/include",
-				"/usr/bin/cc*",
-				"/usr/bin/clang*",
-				"/usr/bin/cpp",
-				"/usr/bin/cpp",
-				"/usr/bin/c++",
-				"/usr/bin/lldb",
-				"/usr/bin/ld.lld",
-				"/usr/bin/llvm*",
-				"/usr/bin/objdump*",
-				"/usr/bin/svn*",
-				"/usr/lib/clang",
-				"/usr/share/man",
-				"/usr/share/i18n",
-				"/usr/share/openssl/man",
-				"/usr/include",
-				"/usr/lib32"
-			]
-		}
+		"post-install-commands": [{
+				"chroot": true,
+				"command": "rc-update add dbus default"
+			},
+			{
+				"chroot": true,
+				"command": "echo exec i3 > /root/.xinitrc"
+			}
+		]
 	},
+	"file-name": "i3wm-debug-x64-%%GITHASH%%-%%DATE%%",
+	"install-script": "",
+	"iso-packages": {
+		"default": [
+			"ports-mgmt/pkg",
+			"textproc/jq",
+			"x11/miwidesktop"
+		]
+	},
+	"overlay": "",
+	"prune": {
+		"default": [
+			"METALOG",
+			"/usr/local/share/examples",
+			"/usr/local/include",
+			"/usr/bin/cc*",
+			"/usr/bin/clang*",
+			"/usr/bin/cpp",
+			"/usr/bin/cpp",
+			"/usr/bin/c++",
+			"/usr/bin/lldb",
+			"/usr/bin/ld.lld",
+			"/usr/bin/llvm*",
+			"/usr/bin/objdump*",
+			"/usr/bin/svn*",
+			"/usr/lib/clang",
+			"/usr/share/man",
+			"/usr/share/i18n",
+			"/usr/share/openssl/man",
+			"/usr/include",
+			"/usr/lib32"
+		]
+	},
+
 	"prune-dist-packages": {
 		"default": [
 			"(i3wm-).+(-profile-)",
