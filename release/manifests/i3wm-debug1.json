@@ -106,6 +106,7 @@
 				"x11/xorg"
 			]
 		},
+		"file-name": "i3wm-debug-x64-%%GITHASH%%-%%DATE%%",
 		"auto-install-script": "",
 		"dist-packages": {
 			"default": []
@@ -121,7 +122,6 @@
 			}
 		]
 	},
-	"file-name": "i3wm-debug-x64-%%GITHASH%%-%%DATE%%",
 	"install-script": "",
 	"iso-packages": {
 		"default": [
