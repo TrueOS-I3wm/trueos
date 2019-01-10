@@ -148,7 +148,8 @@
 			"(i3wm-).+(-profile-)",
 			"(i3wm-).+(-debug-)",
 			"(i3wm-).+(-tests-)",
-			"(i3wm-).+(-sendmail-)"
+			"(i3wm-).+(-sendmail-)",
+			"(i3wm-).+(-unbound-)"
 		]
 	},
 	"pkg-repo": {
