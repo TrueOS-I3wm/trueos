@@ -98,7 +98,13 @@ pipeline {
       steps {
         archiveArtifacts artifacts: 'artifacts/**', fingerprint: true
       }
+    }    
+    stage('Sync Mirror') {
+      steps {
+        sh 'rsync -a --delete -v /usr/obj/${SRCROOT}/pkgset/ /home/packages/FreeBSD:13:amd64/latest'
+      }
     }
+    
  }
   post {
     success {
