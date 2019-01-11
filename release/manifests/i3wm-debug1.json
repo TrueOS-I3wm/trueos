@@ -233,7 +233,8 @@
 				"x11/lxrandr",
 				"x11/rxvt-unicode",
 				"x11/urxvt-perls",
-				"x11/xorg"
+				"x11/xorg",
+				"base/devtools"
 			]
 		},
 		"build-all": false,
