@@ -109,10 +109,11 @@ setup_poudriere_conf()
 	echo "Using Dist Directory: $DIST_DIR"
 	echo "FREEBSD_HOST=file://${DIST_DIR}" >> ${_pdconf}
 	echo "Using Ports Tree: $PORTS_URL"
-	echo "USE_TMPFS=data" >> ${_pdconf}
+	echo "USE_TMPFS=all" >> ${_pdconf}
 	echo "BASEFS=$POUDRIERE_BASEFS" >> ${_pdconf}
 	echo "ATOMIC_PACKAGE_REPOSITORY=no" >> ${_pdconf}
 	echo "PKG_REPO_FROM_HOST=yes" >> ${_pdconf}
+	echo "ALLOW_MAKE_JOBS=yes" >> ${_pdconf}
 	echo "ALLOW_MAKE_JOBS_PACKAGES=\"chromium* iridium* aws-sdk* gcc* webkit* llvm* clang* firefox* ruby* cmake* rust* qt5-web* phantomjs* swift* perl5* py*\"" >> ${_pdconf}
 	echo "PRIORITY_BOOST=\"pypy* openoffice* iridium* chromium* aws-sdk* libreoffice*\"" >> ${_pdconf}
 
