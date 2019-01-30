@@ -40,6 +40,14 @@ pipeline {
 
     }
 
+    stage('Disable Debug in Kernel') {
+      steps {
+        sh 'rm /usr/obj/${SRCROOT}/amd64/conf/GENERIC'
+        sh 'cp /usr/obj/${SRCROOT}/amd64/conf/I3 /usr/obj/${SRCROOT}/amd64/conf/GENERIC'
+      }
+
+    }
+
     stage('World') {
       post {
         always {
