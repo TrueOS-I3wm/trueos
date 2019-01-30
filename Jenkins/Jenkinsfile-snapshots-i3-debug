@@ -42,8 +42,8 @@ pipeline {
 
     stage('Disable Debug in Kernel') {
       steps {
-        sh 'rm ${SRCROOT}/amd64/conf/GENERIC'
-        sh 'cp ${SRCROOT}/amd64/conf/I3 ${SRCROOT}/amd64/conf/GENERIC'
+        sh 'rm ${SRCROOT}/sys/amd64/conf/GENERIC'
+        sh 'cp ${SRCROOT}/sys/amd64/conf/I3 ${SRCROOT}/amd64/conf/GENERIC'
       }
 
     }
