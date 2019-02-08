@@ -10,7 +10,7 @@ pipeline {
   environment {
     GH_ORG = 'TrueOS-I3wm'
     GH_REPO = 'trueos'
-    SRCROOT = '/usr/i3wm-debug'
+    SRCROOT = '/usr/i3wm-debug1'
     POUDRIERE_BASE = 'i3wm-debug1'
     POUDRIERE_PORTS = 'i3wm-ports-debug'
     TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/i3wm-debug1.json'
