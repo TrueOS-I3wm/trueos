@@ -11,7 +11,7 @@ pipeline {
     GH_ORG = 'TrueOS-I3wm'
     GH_REPO = 'trueos'
     SRCROOT = '/usr/i3wm-debug'
-    POUDRIERE_BASE = 'i3wm-debug'
+    POUDRIERE_BASE = 'i3wm-debug1'
     POUDRIERE_PORTS = 'i3wm-ports-debug'
     TRUEOS_MANIFEST='${WORKSPACE}/release/manifests/i3wm-debug1.json'
     WITH_XTRA_PKGS = 'YES'
